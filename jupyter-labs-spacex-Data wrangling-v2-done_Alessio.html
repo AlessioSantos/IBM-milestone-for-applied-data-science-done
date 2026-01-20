@@ -1,0 +1,1902 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jupyter Notebook — generated with runcell</title>
+    <meta name="description" content="Exported with runcell — convert .ipynb notebooks to HTML or PDF anytime at runcell.dev." />
+    <meta name="generator" content="runcell" />
+    <style>
+        :root {
+            --jp-code-font-family: 'SFMono-Regular', Menlo, Consolas, 'Liberation Mono', monospace;
+            --jp-content-font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
+            --jp-cell-prompt-width: 64px;
+            --jp-input-prompt-color: #307fc1;
+            --jp-output-prompt-color: #bf5b3d;
+            --jp-cell-input-bg: #f7f7f7;
+            --jp-layout-color0: #ffffff;
+            --jp-layout-color1: #f7f7f7;
+            --jp-border-color1: #e0e0e0;
+            --jp-content-font-color0: #000000;
+            --jp-content-font-color1: #333333;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--jp-content-font-family);
+            font-size: 14px;
+            line-height: 1.5;
+            color: var(--jp-content-font-color0);
+            background-color: var(--jp-layout-color0);
+            margin: 0;
+            padding: 0;
+        }
+
+        .notebook-container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        /* Cell structure */
+        .cell {
+            display: flex;
+            flex-direction: row;
+            margin-bottom: 12px;
+            position: relative;
+        }
+
+        .cell-prompt {
+            min-width: var(--jp-cell-prompt-width);
+            width: var(--jp-cell-prompt-width);
+            font-family: var(--jp-code-font-family);
+            font-size: 12px;
+            padding: 10px 8px 10px 0;
+            text-align: right;
+            flex-shrink: 0;
+            user-select: none;
+        }
+
+        .cell-content {
+            flex: 1;
+            min-width: 0;
+            overflow: hidden;
+        }
+
+        /* Input prompt styling - Jupyter blue */
+        .input-prompt {
+            color: var(--jp-input-prompt-color);
+            font-weight: bold;
+        }
+
+        /* Output prompt styling - Jupyter red/orange */
+        .output-prompt {
+            color: var(--jp-output-prompt-color);
+            font-weight: bold;
+        }
+
+        /* Code cell input area */
+        .input-area {
+            background-color: var(--jp-cell-input-bg);
+            border: 1px solid var(--jp-border-color1);
+            border-radius: 2px;
+            padding: 8px 12px;
+            overflow-x: auto;
+        }
+
+        .input-area pre {
+            margin: 0;
+            font-family: var(--jp-code-font-family);
+            font-size: 13px;
+            line-height: 1.4;
+            white-space: pre-wrap;
+            word-wrap: break-word;
+        }
+
+        /* Output area */
+        .output-area {
+            margin-top: 0;
+        }
+
+        .output-wrapper {
+            display: flex;
+            flex-direction: row;
+            margin-top: 4px;
+        }
+
+        .output-content {
+            flex: 1;
+            min-width: 0;
+            padding: 8px 0;
+        }
+
+        .output-content pre {
+            margin: 0;
+            font-family: var(--jp-code-font-family);
+            font-size: 13px;
+            line-height: 1.4;
+            white-space: pre-wrap;
+            word-wrap: break-word;
+        }
+
+        /* Stream output (stdout/stderr) */
+        .output-stream {
+            font-family: var(--jp-code-font-family);
+            font-size: 13px;
+            line-height: 1.4;
+            white-space: pre-wrap;
+            word-wrap: break-word;
+        }
+
+        .output-stderr {
+            background-color: #fdd;
+            padding: 8px 12px;
+            border-radius: 2px;
+        }
+
+        /* Execute result / display data */
+        .output-result {
+            padding: 4px 0;
+        }
+
+        .output-result pre {
+            margin: 0;
+            font-family: var(--jp-code-font-family);
+            font-size: 13px;
+        }
+
+        /* Image output */
+        .output-image {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        /* HTML output (DataFrames, etc.) */
+        .output-html {
+            overflow-x: auto;
+        }
+
+        .output-html table {
+            border-collapse: collapse;
+            font-size: 13px;
+            font-family: var(--jp-content-font-family);
+        }
+
+        .output-html table th,
+        .output-html table td {
+            border: 1px solid #ddd;
+            padding: 6px 10px;
+            text-align: left;
+        }
+
+        .output-html table th {
+            background-color: #f5f5f5;
+            font-weight: 600;
+        }
+
+        .output-html table tr:nth-child(even) {
+            background-color: #fafafa;
+        }
+
+        /* Error output */
+        .output-error {
+            background-color: #fff0f0;
+            padding: 8px 12px;
+            border-radius: 2px;
+            font-family: var(--jp-code-font-family);
+            font-size: 13px;
+            white-space: pre-wrap;
+        }
+
+        /* Markdown cell styling */
+        .markdown-cell {
+            padding: 10px 0;
+        }
+
+        .markdown-cell h1 {
+            font-size: 2em;
+            font-weight: 600;
+            margin: 0.67em 0;
+            padding-bottom: 0.3em;
+            border-bottom: 1px solid var(--jp-border-color1);
+        }
+
+        .markdown-cell h2 {
+            font-size: 1.5em;
+            font-weight: 600;
+            margin: 0.83em 0;
+            padding-bottom: 0.3em;
+            border-bottom: 1px solid var(--jp-border-color1);
+        }
+
+        .markdown-cell h3 {
+            font-size: 1.25em;
+            font-weight: 600;
+            margin: 1em 0;
+        }
+
+        .markdown-cell h4 {
+            font-size: 1em;
+            font-weight: 600;
+            margin: 1.33em 0;
+        }
+
+        .markdown-cell h5 {
+            font-size: 0.875em;
+            font-weight: 600;
+            margin: 1.67em 0;
+        }
+
+        .markdown-cell h6 {
+            font-size: 0.85em;
+            font-weight: 600;
+            margin: 2.33em 0;
+            color: #6a737d;
+        }
+
+        .markdown-cell p {
+            margin: 0 0 16px 0;
+            line-height: 1.6;
+        }
+
+        .markdown-cell code {
+            font-family: var(--jp-code-font-family);
+            font-size: 85%;
+            background-color: rgba(27, 31, 35, 0.05);
+            padding: 0.2em 0.4em;
+            border-radius: 3px;
+        }
+
+        .markdown-cell pre {
+            background-color: var(--jp-cell-input-bg);
+            border: 1px solid var(--jp-border-color1);
+            border-radius: 3px;
+            padding: 16px;
+            overflow-x: auto;
+            font-size: 85%;
+            line-height: 1.45;
+        }
+
+        .markdown-cell pre code {
+            background-color: transparent;
+            padding: 0;
+            border-radius: 0;
+            font-size: 100%;
+        }
+
+        .markdown-cell blockquote {
+            margin: 0 0 16px 0;
+            padding: 0 1em;
+            color: #6a737d;
+            border-left: 4px solid #dfe2e5;
+        }
+
+        .markdown-cell ul,
+        .markdown-cell ol {
+            margin: 0 0 16px 0;
+            padding-left: 2em;
+        }
+
+        .markdown-cell li {
+            margin: 0.25em 0;
+        }
+
+        .markdown-cell a {
+            color: #0366d6;
+            text-decoration: none;
+        }
+
+        .markdown-cell a:hover {
+            text-decoration: underline;
+        }
+
+        .markdown-cell hr {
+            border: 0;
+            border-top: 1px solid var(--jp-border-color1);
+            margin: 24px 0;
+        }
+
+        .markdown-cell img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        .markdown-cell table {
+            border-collapse: collapse;
+            margin: 0 0 16px 0;
+        }
+
+        .markdown-cell table th,
+        .markdown-cell table td {
+            border: 1px solid #dfe2e5;
+            padding: 6px 13px;
+        }
+
+        .markdown-cell table th {
+            font-weight: 600;
+            background-color: #f6f8fa;
+        }
+
+        .markdown-cell table tr:nth-child(2n) {
+            background-color: #f6f8fa;
+        }
+
+        /* Raw cell styling */
+        .raw-cell {
+            background-color: var(--jp-layout-color1);
+            border: 1px solid var(--jp-border-color1);
+            border-radius: 2px;
+            padding: 8px 12px;
+            font-family: var(--jp-code-font-family);
+            font-size: 13px;
+            white-space: pre-wrap;
+        }
+
+        /* Empty prompt placeholder */
+        .prompt-empty {
+            color: transparent;
+        }
+
+        .export-footer {
+            margin-top: 32px;
+            padding-top: 16px;
+            border-top: 1px solid var(--jp-border-color1);
+            color: #555;
+            font-size: 13px;
+            text-align: center;
+        }
+
+        .export-footer a {
+            color: #0366d6;
+            text-decoration: none;
+        }
+
+        .export-footer a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="notebook-container">
+        <div class="cell cell-markdown">
+            <div class="cell-prompt prompt-empty">&nbsp;</div>
+            <div class="cell-content">
+                <div class="markdown-cell"><p style="text-align:center"><br>    <a href="https://skills.network" target="_blank"><br>    <img src="https://cf-courses-data.s3.us.cloud-object-storage.appdomain.cloud/assets/logos/SN_web_lightmode.png" width="200" alt="Skills Network Logo"><br>    </a><br></p><br></div>
+            </div>
+        </div>
+        <div class="cell cell-markdown">
+            <div class="cell-prompt prompt-empty">&nbsp;</div>
+            <div class="cell-content">
+                <div class="markdown-cell"><h1><strong>Space X  Falcon 9 First Stage Landing Prediction</strong></h1><br></div>
+            </div>
+        </div>
+        <div class="cell cell-markdown">
+            <div class="cell-prompt prompt-empty">&nbsp;</div>
+            <div class="cell-content">
+                <div class="markdown-cell"> ## Lab 2: Data wrangling <br></div>
+            </div>
+        </div>
+        <div class="cell cell-markdown">
+            <div class="cell-prompt prompt-empty">&nbsp;</div>
+            <div class="cell-content">
+                <div class="markdown-cell">Estimated time needed: <strong>60</strong> minutes<br></div>
+            </div>
+        </div>
+        <div class="cell cell-markdown">
+            <div class="cell-prompt prompt-empty">&nbsp;</div>
+            <div class="cell-content">
+                <div class="markdown-cell">In this lab, we will perform some Exploratory Data Analysis (EDA) to find some patterns in the data and determine what would be the label for training supervised models. <br><br>In the data set, there are several different cases where the booster did not land successfully. Sometimes a landing was attempted but failed due to an accident; for example, <code>True Ocean</code> means the mission outcome was successfully  landed to a specific region of the ocean while <code>False Ocean</code> means the mission outcome was unsuccessfully landed to a specific region of the ocean. <code>True RTLS</code> means the mission outcome was successfully  landed to a ground pad <code>False RTLS</code> means the mission outcome was unsuccessfully landed to a ground pad.<code>True ASDS</code> means the mission outcome was successfully landed on  a drone ship <code>False ASDS</code> means the mission outcome was unsuccessfully landed on a drone ship. <br><br>In this lab we will mainly convert those outcomes into Training Labels with <code>1</code> means the booster successfully landed <code>0</code> means it was unsuccessful.<br></div>
+            </div>
+        </div>
+        <div class="cell cell-markdown">
+            <div class="cell-prompt prompt-empty">&nbsp;</div>
+            <div class="cell-content">
+                <div class="markdown-cell">Falcon 9 first stage will land successfully<br></div>
+            </div>
+        </div>
+        <div class="cell cell-markdown">
+            <div class="cell-prompt prompt-empty">&nbsp;</div>
+            <div class="cell-content">
+                <div class="markdown-cell">![](https://cf-courses-data.s3.us.cloud-object-storage.appdomain.cloud/IBMDeveloperSkillsNetwork-DS0701EN-SkillsNetwork/api/Images/landing_1.gif)<br></div>
+            </div>
+        </div>
+        <div class="cell cell-markdown">
+            <div class="cell-prompt prompt-empty">&nbsp;</div>
+            <div class="cell-content">
+                <div class="markdown-cell">Several examples of an unsuccessful landing are shown here:<br></div>
+            </div>
+        </div>
+        <div class="cell cell-markdown">
+            <div class="cell-prompt prompt-empty">&nbsp;</div>
+            <div class="cell-content">
+                <div class="markdown-cell">![](https://cf-courses-data.s3.us.cloud-object-storage.appdomain.cloud/IBMDeveloperSkillsNetwork-DS0701EN-SkillsNetwork/api/Images/crash.gif)<br></div>
+            </div>
+        </div>
+        <div class="cell cell-markdown">
+            <div class="cell-prompt prompt-empty">&nbsp;</div>
+            <div class="cell-content">
+                <div class="markdown-cell">   <br></div>
+            </div>
+        </div>
+        <div class="cell cell-markdown">
+            <div class="cell-prompt prompt-empty">&nbsp;</div>
+            <div class="cell-content">
+                <div class="markdown-cell"><h2>Objectives</h2><br>Perform exploratory  Data Analysis and determine Training Labels <br><br>- Exploratory Data Analysis<br>- Determine Training Labels <br></div>
+            </div>
+        </div>
+        <div class="cell cell-markdown">
+            <div class="cell-prompt prompt-empty">&nbsp;</div>
+            <div class="cell-content">
+                <div class="markdown-cell">----<br></div>
+            </div>
+        </div>
+        <div class="cell cell-markdown">
+            <div class="cell-prompt prompt-empty">&nbsp;</div>
+            <div class="cell-content">
+                <div class="markdown-cell">Install the below libraries<br></div>
+            </div>
+        </div>
+        <div class="cell cell-markdown">
+            <div class="cell-prompt prompt-empty">&nbsp;</div>
+            <div class="cell-content">
+                <div class="markdown-cell"><h2>Import Libraries and Define Auxiliary Functions</h2><br></div>
+            </div>
+        </div>
+        <div class="cell cell-markdown">
+            <div class="cell-prompt prompt-empty">&nbsp;</div>
+            <div class="cell-content">
+                <div class="markdown-cell">We will import the following libraries.<br></div>
+            </div>
+        </div>
+        <div class="cell cell-code">
+            <div class="cell-prompt input-prompt">In [2]:</div>
+            <div class="cell-content">
+                <div class="input-area"><pre># Pandas is a software library written for the Python programming language for data manipulation and analysis.
+import pandas as pd
+#NumPy is a library for the Python programming language, adding support for large, multi-dimensional arrays and matrices, along with a large collection of high-level mathematical functions to operate on these arrays
+import numpy as np</pre></div>
+            </div>
+        </div>
+        <div class="cell cell-markdown">
+            <div class="cell-prompt prompt-empty">&nbsp;</div>
+            <div class="cell-content">
+                <div class="markdown-cell"><h3>Data Analysis </h3><br></div>
+            </div>
+        </div>
+        <div class="cell cell-markdown">
+            <div class="cell-prompt prompt-empty">&nbsp;</div>
+            <div class="cell-content">
+                <div class="markdown-cell">Load Space X dataset, from last section.<br></div>
+            </div>
+        </div>
+        <div class="cell cell-code">
+            <div class="cell-prompt input-prompt">In [3]:</div>
+            <div class="cell-content">
+                <div class="input-area"><pre>df=pd.read_csv("https://cf-courses-data.s3.us.cloud-object-storage.appdomain.cloud/IBM-DS0321EN-SkillsNetwork/datasets/dataset_part_1.csv")
+df.head(10)</pre></div>
+                <div class="output-area">
+                    <div class="output-wrapper">
+                        <div class="cell-prompt output-prompt">Out[3]:</div>
+                        <div class="output-content">
+                            <div class="output-html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>FlightNumber</th>
+      <th>Date</th>
+      <th>BoosterVersion</th>
+      <th>PayloadMass</th>
+      <th>Orbit</th>
+      <th>LaunchSite</th>
+      <th>Outcome</th>
+      <th>Flights</th>
+      <th>GridFins</th>
+      <th>Reused</th>
+      <th>Legs</th>
+      <th>LandingPad</th>
+      <th>Block</th>
+      <th>ReusedCount</th>
+      <th>Serial</th>
+      <th>Longitude</th>
+      <th>Latitude</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>1</td>
+      <td>2010-06-04</td>
+      <td>Falcon 9</td>
+      <td>6104.959412</td>
+      <td>LEO</td>
+      <td>CCAFS SLC 40</td>
+      <td>None None</td>
+      <td>1</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>NaN</td>
+      <td>1.0</td>
+      <td>0</td>
+      <td>B0003</td>
+      <td>-80.577366</td>
+      <td>28.561857</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>2</td>
+      <td>2012-05-22</td>
+      <td>Falcon 9</td>
+      <td>525.000000</td>
+      <td>LEO</td>
+      <td>CCAFS SLC 40</td>
+      <td>None None</td>
+      <td>1</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>NaN</td>
+      <td>1.0</td>
+      <td>0</td>
+      <td>B0005</td>
+      <td>-80.577366</td>
+      <td>28.561857</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>3</td>
+      <td>2013-03-01</td>
+      <td>Falcon 9</td>
+      <td>677.000000</td>
+      <td>ISS</td>
+      <td>CCAFS SLC 40</td>
+      <td>None None</td>
+      <td>1</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>NaN</td>
+      <td>1.0</td>
+      <td>0</td>
+      <td>B0007</td>
+      <td>-80.577366</td>
+      <td>28.561857</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>4</td>
+      <td>2013-09-29</td>
+      <td>Falcon 9</td>
+      <td>500.000000</td>
+      <td>PO</td>
+      <td>VAFB SLC 4E</td>
+      <td>False Ocean</td>
+      <td>1</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>NaN</td>
+      <td>1.0</td>
+      <td>0</td>
+      <td>B1003</td>
+      <td>-120.610829</td>
+      <td>34.632093</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>5</td>
+      <td>2013-12-03</td>
+      <td>Falcon 9</td>
+      <td>3170.000000</td>
+      <td>GTO</td>
+      <td>CCAFS SLC 40</td>
+      <td>None None</td>
+      <td>1</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>NaN</td>
+      <td>1.0</td>
+      <td>0</td>
+      <td>B1004</td>
+      <td>-80.577366</td>
+      <td>28.561857</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>6</td>
+      <td>2014-01-06</td>
+      <td>Falcon 9</td>
+      <td>3325.000000</td>
+      <td>GTO</td>
+      <td>CCAFS SLC 40</td>
+      <td>None None</td>
+      <td>1</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>NaN</td>
+      <td>1.0</td>
+      <td>0</td>
+      <td>B1005</td>
+      <td>-80.577366</td>
+      <td>28.561857</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>7</td>
+      <td>2014-04-18</td>
+      <td>Falcon 9</td>
+      <td>2296.000000</td>
+      <td>ISS</td>
+      <td>CCAFS SLC 40</td>
+      <td>True Ocean</td>
+      <td>1</td>
+      <td>False</td>
+      <td>False</td>
+      <td>True</td>
+      <td>NaN</td>
+      <td>1.0</td>
+      <td>0</td>
+      <td>B1006</td>
+      <td>-80.577366</td>
+      <td>28.561857</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>8</td>
+      <td>2014-07-14</td>
+      <td>Falcon 9</td>
+      <td>1316.000000</td>
+      <td>LEO</td>
+      <td>CCAFS SLC 40</td>
+      <td>True Ocean</td>
+      <td>1</td>
+      <td>False</td>
+      <td>False</td>
+      <td>True</td>
+      <td>NaN</td>
+      <td>1.0</td>
+      <td>0</td>
+      <td>B1007</td>
+      <td>-80.577366</td>
+      <td>28.561857</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>9</td>
+      <td>2014-08-05</td>
+      <td>Falcon 9</td>
+      <td>4535.000000</td>
+      <td>GTO</td>
+      <td>CCAFS SLC 40</td>
+      <td>None None</td>
+      <td>1</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>NaN</td>
+      <td>1.0</td>
+      <td>0</td>
+      <td>B1008</td>
+      <td>-80.577366</td>
+      <td>28.561857</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>10</td>
+      <td>2014-09-07</td>
+      <td>Falcon 9</td>
+      <td>4428.000000</td>
+      <td>GTO</td>
+      <td>CCAFS SLC 40</td>
+      <td>None None</td>
+      <td>1</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>NaN</td>
+      <td>1.0</td>
+      <td>0</td>
+      <td>B1011</td>
+      <td>-80.577366</td>
+      <td>28.561857</td>
+    </tr>
+  </tbody>
+</table>
+</div></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="cell cell-markdown">
+            <div class="cell-prompt prompt-empty">&nbsp;</div>
+            <div class="cell-content">
+                <div class="markdown-cell">Identify and calculate the percentage of the missing values in each attribute<br></div>
+            </div>
+        </div>
+        <div class="cell cell-code">
+            <div class="cell-prompt input-prompt">In [4]:</div>
+            <div class="cell-content">
+                <div class="input-area"><pre>df.isnull().sum()/len(df)*100</pre></div>
+                <div class="output-area">
+                    <div class="output-wrapper">
+                        <div class="cell-prompt output-prompt">Out[4]:</div>
+                        <div class="output-content">
+                            <div class="output-result"><pre>FlightNumber       0.000000
+Date               0.000000
+BoosterVersion     0.000000
+PayloadMass        0.000000
+Orbit              0.000000
+LaunchSite         0.000000
+Outcome            0.000000
+Flights            0.000000
+GridFins           0.000000
+Reused             0.000000
+Legs               0.000000
+LandingPad        28.888889
+Block              0.000000
+ReusedCount        0.000000
+Serial             0.000000
+Longitude          0.000000
+Latitude           0.000000
+dtype: float64</pre></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="cell cell-markdown">
+            <div class="cell-prompt prompt-empty">&nbsp;</div>
+            <div class="cell-content">
+                <div class="markdown-cell">Identify which columns are numerical and categorical:<br></div>
+            </div>
+        </div>
+        <div class="cell cell-code">
+            <div class="cell-prompt input-prompt">In [5]:</div>
+            <div class="cell-content">
+                <div class="input-area"><pre>df.dtypes</pre></div>
+                <div class="output-area">
+                    <div class="output-wrapper">
+                        <div class="cell-prompt output-prompt">Out[5]:</div>
+                        <div class="output-content">
+                            <div class="output-result"><pre>FlightNumber        int64
+Date               object
+BoosterVersion     object
+PayloadMass       float64
+Orbit              object
+LaunchSite         object
+Outcome            object
+Flights             int64
+GridFins             bool
+Reused               bool
+Legs                 bool
+LandingPad         object
+Block             float64
+ReusedCount         int64
+Serial             object
+Longitude         float64
+Latitude          float64
+dtype: object</pre></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="cell cell-markdown">
+            <div class="cell-prompt prompt-empty">&nbsp;</div>
+            <div class="cell-content">
+                <div class="markdown-cell"><h3>TASK 1: Calculate the number of launches on each site</h3><br><br>The data contains several Space X  launch facilities: <a href='https://en.wikipedia.org/wiki/List_of_Cape_Canaveral_and_Merritt_Island_launch_sites'>Cape Canaveral Space</a> Launch Complex 40  <b>VAFB SLC 4E </b> , Vandenberg Air Force Base Space Launch Complex 4E <b>(SLC-4E)</b>, Kennedy Space Center Launch Complex 39A <b>KSC LC 39A </b>.The location of each Launch Is placed in the column <code>LaunchSite</code><br></div>
+            </div>
+        </div>
+        <div class="cell cell-markdown">
+            <div class="cell-prompt prompt-empty">&nbsp;</div>
+            <div class="cell-content">
+                <div class="markdown-cell">Next, let's see the number of launches for each site.<br><br>Use the method  <code>value_counts()</code> on the column <code>LaunchSite</code> to determine the number of launches  on each site: <br></div>
+            </div>
+        </div>
+        <div class="cell cell-code">
+            <div class="cell-prompt input-prompt">In [6]:</div>
+            <div class="cell-content">
+                <div class="input-area"><pre># Apply value_counts() on column LaunchSite
+launchsite_counts = df['LaunchSite'].value_counts()
+</pre></div>
+            </div>
+        </div>
+        <div class="cell cell-code">
+            <div class="cell-prompt input-prompt">In [7]:</div>
+            <div class="cell-content">
+                <div class="input-area"><pre>launchsite_counts</pre></div>
+                <div class="output-area">
+                    <div class="output-wrapper">
+                        <div class="cell-prompt output-prompt">Out[7]:</div>
+                        <div class="output-content">
+                            <div class="output-result"><pre>LaunchSite
+CCAFS SLC 40    55
+KSC LC 39A      22
+VAFB SLC 4E     13
+Name: count, dtype: int64</pre></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="cell cell-markdown">
+            <div class="cell-prompt prompt-empty">&nbsp;</div>
+            <div class="cell-content">
+                <div class="markdown-cell">Each launch aims to an dedicated orbit, and here are some common orbit types:<br></div>
+            </div>
+        </div>
+        <div class="cell cell-markdown">
+            <div class="cell-prompt prompt-empty">&nbsp;</div>
+            <div class="cell-content">
+                <div class="markdown-cell"><br><br>* <b>LEO</b>: Low Earth orbit (LEO)is an Earth-centred orbit with an altitude of 2,000 km (1,200 mi) or less (approximately one-third of the radius of Earth),[1] or with at least 11.25 periods per day (an orbital period of 128 minutes or less) and an eccentricity less than 0.25.[2] Most of the manmade objects in outer space are in LEO <a href='https://en.wikipedia.org/wiki/Low_Earth_orbit'>[1]</a>.<br><br>* <b>VLEO</b>: Very Low Earth Orbits (VLEO) can be defined as the orbits with a mean altitude below 450 km. Operating in these orbits can provide a number of benefits to Earth observation spacecraft as the spacecraft operates closer to the observation<a href='https://www.researchgate.net/publication/271499606_Very_Low_Earth_Orbit_mission_concepts_for_Earth_Observation_Benefits_and_challenges'>[2]</a>.<br><br><br>* <b>GTO</b>(Geostationary Transfer Orbit): A geostationary transfer orbit is an elliptical Earth orbit used to transfer satellites from low Earth orbit (LEO) to geostationary orbit (GEO). In a GTO, the perigee (closest point to Earth) is much lower than GEO altitude, while the apogee (farthest point) reaches approximately 22,236 miles (35,786 kilometers) above Earth’s equator — the altitude of a geostationary orbit. Satellites in GTO use onboard propulsion to circularize their orbit at GEO altitude, where they can provide services such as weather monitoring, communications, and surveillance. <a  href="https://www.space.com/29222-geosynchronous-orbit.html" >[3] </a>.<br><br><br>* <b>SSO (or SO)</b>: It is a Sun-synchronous orbit  also called a heliosynchronous orbit is a nearly polar orbit around a planet, in which the satellite passes over any given point of the planet's surface at the same local mean solar time <a href="https://en.wikipedia.org/wiki/Sun-synchronous_orbit">[4] <a>.<br>    <br>    <br>    <br>* <b>ES-L1 </b>:At the Lagrange points the gravitational forces of the two large bodies cancel out in such a way that a small object placed in orbit there is in equilibrium relative to the center of mass of the large bodies. L1 is one such point between the sun and the earth <a href="https://en.wikipedia.org/wiki/Lagrange_point#L1_point">[5]</a> .<br>    <br>    <br>* <b>HEO</b> A highly elliptical orbit, is an elliptic orbit with high eccentricity, usually referring to one around Earth <a href="https://en.wikipedia.org/wiki/Highly_elliptical_orbit">[6]</a>.<br><br><br>* <b> ISS </b> A modular space station (habitable artificial satellite) in low Earth orbit. It is a multinational collaborative project between five participating space agencies: NASA (United States), Roscosmos (Russia), JAXA (Japan), ESA (Europe), and CSA (Canada)<a href="https://en.wikipedia.org/wiki/International_Space_Station"> [7] </a><br><br><br>* <b> MEO </b> Geocentric orbits ranging in altitude from 2,000 km (1,200 mi) to just below geosynchronous orbit at 35,786 kilometers (22,236 mi). Also known as an intermediate circular orbit. These are "most commonly at 20,200 kilometers (12,600 mi), or 20,650 kilometers (12,830 mi), with an orbital period of 12 hours <a href="https://en.wikipedia.org/wiki/List_of_orbits"> [8] </a><br><br><br>* <b> HEO </b> Geocentric orbits above the altitude of geosynchronous orbit (35,786 km or 22,236 mi) <a href="https://en.wikipedia.org/wiki/List_of_orbits"> [9] </a><br><br><br>* <b> GEO </b> It is a circular geosynchronous orbit 35,786 kilometres (22,236 miles) above Earth's equator and following the direction of Earth's rotation <a href="https://en.wikipedia.org/wiki/Geostationary_orbit"> [10] </a><br><br><br>* <b> PO </b> It is one type of satellites in which a satellite passes above or nearly above both poles of the body being orbited (usually a planet such as the Earth <a href="https://en.wikipedia.org/wiki/Polar_orbit"> [11] </a><br><br>some are shown in the following plot:<br></div>
+            </div>
+        </div>
+        <div class="cell cell-markdown">
+            <div class="cell-prompt prompt-empty">&nbsp;</div>
+            <div class="cell-content">
+                <div class="markdown-cell">![](https://cf-courses-data.s3.us.cloud-object-storage.appdomain.cloud/IBMDeveloperSkillsNetwork-DS0701EN-SkillsNetwork/api/Images/Orbits.png)<br></div>
+            </div>
+        </div>
+        <div class="cell cell-markdown">
+            <div class="cell-prompt prompt-empty">&nbsp;</div>
+            <div class="cell-content">
+                <div class="markdown-cell"><h3>TASK 2: Calculate the number and occurrence of each orbit</h3><br></div>
+            </div>
+        </div>
+        <div class="cell cell-markdown">
+            <div class="cell-prompt prompt-empty">&nbsp;</div>
+            <div class="cell-content">
+                <div class="markdown-cell"> Use the method  <code>.value_counts()</code> to determine the number and occurrence of each orbit in the  column <code>Orbit</code><br><br><br>Note: Do not count GTO, as it is a transfer orbit and not itself geostationary.<br></div>
+            </div>
+        </div>
+        <div class="cell cell-code">
+            <div class="cell-prompt input-prompt">In [8]:</div>
+            <div class="cell-content">
+                <div class="input-area"><pre># Apply value_counts on Orbit column
+orbit_counts = df[df['Orbit'] != 'GTO']['Orbit'].value_counts()</pre></div>
+            </div>
+        </div>
+        <div class="cell cell-code">
+            <div class="cell-prompt input-prompt">In [9]:</div>
+            <div class="cell-content">
+                <div class="input-area"><pre>orbit_counts</pre></div>
+                <div class="output-area">
+                    <div class="output-wrapper">
+                        <div class="cell-prompt output-prompt">Out[9]:</div>
+                        <div class="output-content">
+                            <div class="output-result"><pre>Orbit
+ISS      21
+VLEO     14
+PO        9
+LEO       7
+SSO       5
+MEO       3
+ES-L1     1
+HEO       1
+SO        1
+GEO       1
+Name: count, dtype: int64</pre></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="cell cell-markdown">
+            <div class="cell-prompt prompt-empty">&nbsp;</div>
+            <div class="cell-content">
+                <div class="markdown-cell"><h3>TASK 3: Calculate the number and occurence of mission outcome of the orbits</h3><br></div>
+            </div>
+        </div>
+        <div class="cell cell-markdown">
+            <div class="cell-prompt prompt-empty">&nbsp;</div>
+            <div class="cell-content">
+                <div class="markdown-cell">Use the method <code>.value_counts()</code> on the column <code>Outcome</code> to determine the number of <code>landing_outcomes</code>.Then assign it to a variable landing_outcomes.<br></div>
+            </div>
+        </div>
+        <div class="cell cell-code">
+            <div class="cell-prompt input-prompt">In [10]:</div>
+            <div class="cell-content">
+                <div class="input-area"><pre>landing_outcomes = df['Outcome'].value_counts()</pre></div>
+            </div>
+        </div>
+        <div class="cell cell-code">
+            <div class="cell-prompt input-prompt">In [11]:</div>
+            <div class="cell-content">
+                <div class="input-area"><pre>landing_outcomes</pre></div>
+                <div class="output-area">
+                    <div class="output-wrapper">
+                        <div class="cell-prompt output-prompt">Out[11]:</div>
+                        <div class="output-content">
+                            <div class="output-result"><pre>Outcome
+True ASDS      41
+None None      19
+True RTLS      14
+False ASDS      6
+True Ocean      5
+False Ocean     2
+None ASDS       2
+False RTLS      1
+Name: count, dtype: int64</pre></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="cell cell-markdown">
+            <div class="cell-prompt prompt-empty">&nbsp;</div>
+            <div class="cell-content">
+                <div class="markdown-cell"><code>True Ocean</code> means the mission outcome was successfully  landed to a specific region of the ocean while <code>False Ocean</code> means the mission outcome was unsuccessfully landed to a specific region of the ocean. <code>True RTLS</code> means the mission outcome was successfully  landed to a ground pad <code>False RTLS</code> means the mission outcome was unsuccessfully landed to a ground pad.<code>True ASDS</code> means the mission outcome was successfully  landed to a drone ship <code>False ASDS</code> means the mission outcome was unsuccessfully landed to a drone ship. <code>None ASDS</code> and <code>None None</code> these represent a failure to land.<br></div>
+            </div>
+        </div>
+        <div class="cell cell-code">
+            <div class="cell-prompt input-prompt">In [12]:</div>
+            <div class="cell-content">
+                <div class="input-area"><pre>for i,outcome in enumerate(landing_outcomes.keys()):
+    print(i,outcome)</pre></div>
+                <div class="output-area">
+                    <div class="output-wrapper">
+                        <div class="cell-prompt output-prompt"></div>
+                        <div class="output-content">
+                            <div class="output-stream">0 True ASDS
+1 None None
+2 True RTLS
+3 False ASDS
+4 True Ocean
+5 False Ocean
+6 None ASDS
+7 False RTLS
+</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="cell cell-markdown">
+            <div class="cell-prompt prompt-empty">&nbsp;</div>
+            <div class="cell-content">
+                <div class="markdown-cell">We create a set of outcomes where the second stage did not land successfully:<br></div>
+            </div>
+        </div>
+        <div class="cell cell-code">
+            <div class="cell-prompt input-prompt">In [13]:</div>
+            <div class="cell-content">
+                <div class="input-area"><pre>bad_outcomes=set(landing_outcomes.keys()[[1,3,5,6,7]])
+bad_outcomes</pre></div>
+                <div class="output-area">
+                    <div class="output-wrapper">
+                        <div class="cell-prompt output-prompt">Out[13]:</div>
+                        <div class="output-content">
+                            <div class="output-result"><pre>{'False ASDS', 'False Ocean', 'False RTLS', 'None ASDS', 'None None'}</pre></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="cell cell-markdown">
+            <div class="cell-prompt prompt-empty">&nbsp;</div>
+            <div class="cell-content">
+                <div class="markdown-cell"><h3>TASK 4: Create a landing outcome label from Outcome column</h3><br></div>
+            </div>
+        </div>
+        <div class="cell cell-markdown">
+            <div class="cell-prompt prompt-empty">&nbsp;</div>
+            <div class="cell-content">
+                <div class="markdown-cell">Using the <code>Outcome</code>,  create a list where the element is zero if the corresponding  row  in  <code>Outcome</code> is in the set <code>bad_outcome</code>; otherwise, it's one. Then assign it to the variable <code>landing_class</code>:<br></div>
+            </div>
+        </div>
+        <div class="cell cell-code">
+            <div class="cell-prompt input-prompt">In [14]:</div>
+            <div class="cell-content">
+                <div class="input-area"><pre>landing_class = []
+for outcome in df['Outcome']:
+    if outcome in bad_outcomes:
+        landing_class.append(0)
+    else:
+        landing_class.append(1)
+
+df['Class'] = landing_class
+</pre></div>
+            </div>
+        </div>
+        <div class="cell cell-markdown">
+            <div class="cell-prompt prompt-empty">&nbsp;</div>
+            <div class="cell-content">
+                <div class="markdown-cell">This variable will represent the classification variable that represents the outcome of each launch. If the value is zero, the  first stage did not land successfully; one means  the first stage landed Successfully <br></div>
+            </div>
+        </div>
+        <div class="cell cell-code">
+            <div class="cell-prompt input-prompt">In [15]:</div>
+            <div class="cell-content">
+                <div class="input-area"><pre>df['Class']=landing_class
+df[['Class']].head(8)</pre></div>
+                <div class="output-area">
+                    <div class="output-wrapper">
+                        <div class="cell-prompt output-prompt">Out[15]:</div>
+                        <div class="output-content">
+                            <div class="output-html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Class</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>1</td>
+    </tr>
+  </tbody>
+</table>
+</div></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="cell cell-code">
+            <div class="cell-prompt input-prompt">In [16]:</div>
+            <div class="cell-content">
+                <div class="input-area"><pre>df.info()</pre></div>
+                <div class="output-area">
+                    <div class="output-wrapper">
+                        <div class="cell-prompt output-prompt"></div>
+                        <div class="output-content">
+                            <div class="output-stream">&lt;class 'pandas.core.frame.DataFrame'&gt;
+RangeIndex: 90 entries, 0 to 89
+Data columns (total 18 columns):
+ #   Column          Non-Null Count  Dtype  
+---  ------          --------------  -----  
+ 0   FlightNumber    90 non-null     int64  
+ 1   Date            90 non-null     object 
+ 2   BoosterVersion  90 non-null     object 
+ 3   PayloadMass     90 non-null     float64
+ 4   Orbit           90 non-null     object 
+ 5   LaunchSite      90 non-null     object 
+ 6   Outcome         90 non-null     object 
+ 7   Flights         90 non-null     int64  
+ 8   GridFins        90 non-null     bool   
+ 9   Reused          90 non-null     bool   
+ 10  Legs            90 non-null     bool   
+ 11  LandingPad      64 non-null     object 
+ 12  Block           90 non-null     float64
+ 13  ReusedCount     90 non-null     int64  
+ 14  Serial          90 non-null     object 
+ 15  Longitude       90 non-null     float64
+ 16  Latitude        90 non-null     float64
+ 17  Class           90 non-null     int64  
+dtypes: bool(3), float64(4), int64(4), object(7)
+memory usage: 10.9+ KB
+</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="cell cell-code">
+            <div class="cell-prompt input-prompt">In [17]:</div>
+            <div class="cell-content">
+                <div class="input-area"><pre>df.head(30)</pre></div>
+                <div class="output-area">
+                    <div class="output-wrapper">
+                        <div class="cell-prompt output-prompt">Out[17]:</div>
+                        <div class="output-content">
+                            <div class="output-html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>FlightNumber</th>
+      <th>Date</th>
+      <th>BoosterVersion</th>
+      <th>PayloadMass</th>
+      <th>Orbit</th>
+      <th>LaunchSite</th>
+      <th>Outcome</th>
+      <th>Flights</th>
+      <th>GridFins</th>
+      <th>Reused</th>
+      <th>Legs</th>
+      <th>LandingPad</th>
+      <th>Block</th>
+      <th>ReusedCount</th>
+      <th>Serial</th>
+      <th>Longitude</th>
+      <th>Latitude</th>
+      <th>Class</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>1</td>
+      <td>2010-06-04</td>
+      <td>Falcon 9</td>
+      <td>6104.959412</td>
+      <td>LEO</td>
+      <td>CCAFS SLC 40</td>
+      <td>None None</td>
+      <td>1</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>NaN</td>
+      <td>1.0</td>
+      <td>0</td>
+      <td>B0003</td>
+      <td>-80.577366</td>
+      <td>28.561857</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>2</td>
+      <td>2012-05-22</td>
+      <td>Falcon 9</td>
+      <td>525.000000</td>
+      <td>LEO</td>
+      <td>CCAFS SLC 40</td>
+      <td>None None</td>
+      <td>1</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>NaN</td>
+      <td>1.0</td>
+      <td>0</td>
+      <td>B0005</td>
+      <td>-80.577366</td>
+      <td>28.561857</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>3</td>
+      <td>2013-03-01</td>
+      <td>Falcon 9</td>
+      <td>677.000000</td>
+      <td>ISS</td>
+      <td>CCAFS SLC 40</td>
+      <td>None None</td>
+      <td>1</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>NaN</td>
+      <td>1.0</td>
+      <td>0</td>
+      <td>B0007</td>
+      <td>-80.577366</td>
+      <td>28.561857</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>4</td>
+      <td>2013-09-29</td>
+      <td>Falcon 9</td>
+      <td>500.000000</td>
+      <td>PO</td>
+      <td>VAFB SLC 4E</td>
+      <td>False Ocean</td>
+      <td>1</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>NaN</td>
+      <td>1.0</td>
+      <td>0</td>
+      <td>B1003</td>
+      <td>-120.610829</td>
+      <td>34.632093</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>5</td>
+      <td>2013-12-03</td>
+      <td>Falcon 9</td>
+      <td>3170.000000</td>
+      <td>GTO</td>
+      <td>CCAFS SLC 40</td>
+      <td>None None</td>
+      <td>1</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>NaN</td>
+      <td>1.0</td>
+      <td>0</td>
+      <td>B1004</td>
+      <td>-80.577366</td>
+      <td>28.561857</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>6</td>
+      <td>2014-01-06</td>
+      <td>Falcon 9</td>
+      <td>3325.000000</td>
+      <td>GTO</td>
+      <td>CCAFS SLC 40</td>
+      <td>None None</td>
+      <td>1</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>NaN</td>
+      <td>1.0</td>
+      <td>0</td>
+      <td>B1005</td>
+      <td>-80.577366</td>
+      <td>28.561857</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>7</td>
+      <td>2014-04-18</td>
+      <td>Falcon 9</td>
+      <td>2296.000000</td>
+      <td>ISS</td>
+      <td>CCAFS SLC 40</td>
+      <td>True Ocean</td>
+      <td>1</td>
+      <td>False</td>
+      <td>False</td>
+      <td>True</td>
+      <td>NaN</td>
+      <td>1.0</td>
+      <td>0</td>
+      <td>B1006</td>
+      <td>-80.577366</td>
+      <td>28.561857</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>8</td>
+      <td>2014-07-14</td>
+      <td>Falcon 9</td>
+      <td>1316.000000</td>
+      <td>LEO</td>
+      <td>CCAFS SLC 40</td>
+      <td>True Ocean</td>
+      <td>1</td>
+      <td>False</td>
+      <td>False</td>
+      <td>True</td>
+      <td>NaN</td>
+      <td>1.0</td>
+      <td>0</td>
+      <td>B1007</td>
+      <td>-80.577366</td>
+      <td>28.561857</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>9</td>
+      <td>2014-08-05</td>
+      <td>Falcon 9</td>
+      <td>4535.000000</td>
+      <td>GTO</td>
+      <td>CCAFS SLC 40</td>
+      <td>None None</td>
+      <td>1</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>NaN</td>
+      <td>1.0</td>
+      <td>0</td>
+      <td>B1008</td>
+      <td>-80.577366</td>
+      <td>28.561857</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>10</td>
+      <td>2014-09-07</td>
+      <td>Falcon 9</td>
+      <td>4428.000000</td>
+      <td>GTO</td>
+      <td>CCAFS SLC 40</td>
+      <td>None None</td>
+      <td>1</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>NaN</td>
+      <td>1.0</td>
+      <td>0</td>
+      <td>B1011</td>
+      <td>-80.577366</td>
+      <td>28.561857</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>10</th>
+      <td>11</td>
+      <td>2014-09-21</td>
+      <td>Falcon 9</td>
+      <td>2216.000000</td>
+      <td>ISS</td>
+      <td>CCAFS SLC 40</td>
+      <td>False Ocean</td>
+      <td>1</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>NaN</td>
+      <td>1.0</td>
+      <td>0</td>
+      <td>B1010</td>
+      <td>-80.577366</td>
+      <td>28.561857</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>11</th>
+      <td>12</td>
+      <td>2015-01-10</td>
+      <td>Falcon 9</td>
+      <td>2395.000000</td>
+      <td>ISS</td>
+      <td>CCAFS SLC 40</td>
+      <td>False ASDS</td>
+      <td>1</td>
+      <td>True</td>
+      <td>False</td>
+      <td>True</td>
+      <td>5e9e3032383ecb761634e7cb</td>
+      <td>1.0</td>
+      <td>0</td>
+      <td>B1012</td>
+      <td>-80.577366</td>
+      <td>28.561857</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>12</th>
+      <td>13</td>
+      <td>2015-02-11</td>
+      <td>Falcon 9</td>
+      <td>570.000000</td>
+      <td>ES-L1</td>
+      <td>CCAFS SLC 40</td>
+      <td>True Ocean</td>
+      <td>1</td>
+      <td>True</td>
+      <td>False</td>
+      <td>True</td>
+      <td>NaN</td>
+      <td>1.0</td>
+      <td>0</td>
+      <td>B1013</td>
+      <td>-80.577366</td>
+      <td>28.561857</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>13</th>
+      <td>14</td>
+      <td>2015-04-14</td>
+      <td>Falcon 9</td>
+      <td>1898.000000</td>
+      <td>ISS</td>
+      <td>CCAFS SLC 40</td>
+      <td>False ASDS</td>
+      <td>1</td>
+      <td>True</td>
+      <td>False</td>
+      <td>True</td>
+      <td>5e9e3032383ecb761634e7cb</td>
+      <td>1.0</td>
+      <td>0</td>
+      <td>B1015</td>
+      <td>-80.577366</td>
+      <td>28.561857</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>14</th>
+      <td>15</td>
+      <td>2015-04-27</td>
+      <td>Falcon 9</td>
+      <td>4707.000000</td>
+      <td>GTO</td>
+      <td>CCAFS SLC 40</td>
+      <td>None None</td>
+      <td>1</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>NaN</td>
+      <td>1.0</td>
+      <td>0</td>
+      <td>B1016</td>
+      <td>-80.577366</td>
+      <td>28.561857</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>15</th>
+      <td>16</td>
+      <td>2015-06-28</td>
+      <td>Falcon 9</td>
+      <td>2477.000000</td>
+      <td>ISS</td>
+      <td>CCAFS SLC 40</td>
+      <td>None ASDS</td>
+      <td>1</td>
+      <td>True</td>
+      <td>False</td>
+      <td>True</td>
+      <td>5e9e3032383ecb6bb234e7ca</td>
+      <td>1.0</td>
+      <td>0</td>
+      <td>B1018</td>
+      <td>-80.577366</td>
+      <td>28.561857</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>16</th>
+      <td>17</td>
+      <td>2015-12-22</td>
+      <td>Falcon 9</td>
+      <td>2034.000000</td>
+      <td>LEO</td>
+      <td>CCAFS SLC 40</td>
+      <td>True RTLS</td>
+      <td>1</td>
+      <td>True</td>
+      <td>False</td>
+      <td>True</td>
+      <td>5e9e3032383ecb267a34e7c7</td>
+      <td>1.0</td>
+      <td>0</td>
+      <td>B1019</td>
+      <td>-80.577366</td>
+      <td>28.561857</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>17</th>
+      <td>18</td>
+      <td>2016-01-17</td>
+      <td>Falcon 9</td>
+      <td>553.000000</td>
+      <td>PO</td>
+      <td>VAFB SLC 4E</td>
+      <td>False ASDS</td>
+      <td>1</td>
+      <td>True</td>
+      <td>False</td>
+      <td>True</td>
+      <td>5e9e3033383ecbb9e534e7cc</td>
+      <td>1.0</td>
+      <td>0</td>
+      <td>B1017</td>
+      <td>-120.610829</td>
+      <td>34.632093</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>18</th>
+      <td>19</td>
+      <td>2016-03-04</td>
+      <td>Falcon 9</td>
+      <td>5271.000000</td>
+      <td>GTO</td>
+      <td>CCAFS SLC 40</td>
+      <td>False ASDS</td>
+      <td>1</td>
+      <td>True</td>
+      <td>False</td>
+      <td>True</td>
+      <td>5e9e3032383ecb6bb234e7ca</td>
+      <td>1.0</td>
+      <td>0</td>
+      <td>B1020</td>
+      <td>-80.577366</td>
+      <td>28.561857</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>19</th>
+      <td>20</td>
+      <td>2016-04-08</td>
+      <td>Falcon 9</td>
+      <td>3136.000000</td>
+      <td>ISS</td>
+      <td>CCAFS SLC 40</td>
+      <td>True ASDS</td>
+      <td>1</td>
+      <td>True</td>
+      <td>False</td>
+      <td>True</td>
+      <td>5e9e3032383ecb6bb234e7ca</td>
+      <td>2.0</td>
+      <td>1</td>
+      <td>B1021</td>
+      <td>-80.577366</td>
+      <td>28.561857</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>20</th>
+      <td>21</td>
+      <td>2016-05-06</td>
+      <td>Falcon 9</td>
+      <td>4696.000000</td>
+      <td>GTO</td>
+      <td>CCAFS SLC 40</td>
+      <td>True ASDS</td>
+      <td>1</td>
+      <td>True</td>
+      <td>False</td>
+      <td>True</td>
+      <td>5e9e3032383ecb6bb234e7ca</td>
+      <td>2.0</td>
+      <td>0</td>
+      <td>B1022</td>
+      <td>-80.577366</td>
+      <td>28.561857</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>21</th>
+      <td>22</td>
+      <td>2016-05-27</td>
+      <td>Falcon 9</td>
+      <td>3100.000000</td>
+      <td>GTO</td>
+      <td>CCAFS SLC 40</td>
+      <td>True ASDS</td>
+      <td>1</td>
+      <td>True</td>
+      <td>False</td>
+      <td>True</td>
+      <td>5e9e3032383ecb6bb234e7ca</td>
+      <td>2.0</td>
+      <td>1</td>
+      <td>B1023</td>
+      <td>-80.577366</td>
+      <td>28.561857</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>22</th>
+      <td>23</td>
+      <td>2016-07-18</td>
+      <td>Falcon 9</td>
+      <td>2257.000000</td>
+      <td>ISS</td>
+      <td>CCAFS SLC 40</td>
+      <td>True RTLS</td>
+      <td>1</td>
+      <td>True</td>
+      <td>False</td>
+      <td>True</td>
+      <td>5e9e3032383ecb267a34e7c7</td>
+      <td>2.0</td>
+      <td>1</td>
+      <td>B1025</td>
+      <td>-80.577366</td>
+      <td>28.561857</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>23</th>
+      <td>24</td>
+      <td>2016-08-14</td>
+      <td>Falcon 9</td>
+      <td>4600.000000</td>
+      <td>GTO</td>
+      <td>CCAFS SLC 40</td>
+      <td>True ASDS</td>
+      <td>1</td>
+      <td>True</td>
+      <td>False</td>
+      <td>True</td>
+      <td>5e9e3032383ecb6bb234e7ca</td>
+      <td>2.0</td>
+      <td>0</td>
+      <td>B1026</td>
+      <td>-80.577366</td>
+      <td>28.561857</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>24</th>
+      <td>25</td>
+      <td>2016-09-01</td>
+      <td>Falcon 9</td>
+      <td>5500.000000</td>
+      <td>GTO</td>
+      <td>CCAFS SLC 40</td>
+      <td>None ASDS</td>
+      <td>1</td>
+      <td>True</td>
+      <td>False</td>
+      <td>True</td>
+      <td>5e9e3032383ecb6bb234e7ca</td>
+      <td>3.0</td>
+      <td>0</td>
+      <td>B1028</td>
+      <td>-80.577366</td>
+      <td>28.561857</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>25</th>
+      <td>26</td>
+      <td>2017-01-14</td>
+      <td>Falcon 9</td>
+      <td>9600.000000</td>
+      <td>PO</td>
+      <td>VAFB SLC 4E</td>
+      <td>True ASDS</td>
+      <td>1</td>
+      <td>True</td>
+      <td>False</td>
+      <td>True</td>
+      <td>5e9e3033383ecbb9e534e7cc</td>
+      <td>3.0</td>
+      <td>1</td>
+      <td>B1029</td>
+      <td>-120.610829</td>
+      <td>34.632093</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>26</th>
+      <td>27</td>
+      <td>2017-02-19</td>
+      <td>Falcon 9</td>
+      <td>2490.000000</td>
+      <td>ISS</td>
+      <td>KSC LC 39A</td>
+      <td>True RTLS</td>
+      <td>1</td>
+      <td>True</td>
+      <td>False</td>
+      <td>True</td>
+      <td>5e9e3032383ecb267a34e7c7</td>
+      <td>3.0</td>
+      <td>1</td>
+      <td>B1031</td>
+      <td>-80.603956</td>
+      <td>28.608058</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>27</th>
+      <td>28</td>
+      <td>2017-03-16</td>
+      <td>Falcon 9</td>
+      <td>5600.000000</td>
+      <td>GTO</td>
+      <td>KSC LC 39A</td>
+      <td>None None</td>
+      <td>1</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>NaN</td>
+      <td>3.0</td>
+      <td>0</td>
+      <td>B1030</td>
+      <td>-80.603956</td>
+      <td>28.608058</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>28</th>
+      <td>29</td>
+      <td>2017-03-30</td>
+      <td>Falcon 9</td>
+      <td>5300.000000</td>
+      <td>GTO</td>
+      <td>KSC LC 39A</td>
+      <td>True ASDS</td>
+      <td>2</td>
+      <td>True</td>
+      <td>True</td>
+      <td>True</td>
+      <td>5e9e3032383ecb6bb234e7ca</td>
+      <td>2.0</td>
+      <td>1</td>
+      <td>B1021</td>
+      <td>-80.603956</td>
+      <td>28.608058</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>29</th>
+      <td>30</td>
+      <td>2017-05-01</td>
+      <td>Falcon 9</td>
+      <td>6104.959412</td>
+      <td>LEO</td>
+      <td>KSC LC 39A</td>
+      <td>True RTLS</td>
+      <td>1</td>
+      <td>True</td>
+      <td>False</td>
+      <td>True</td>
+      <td>5e9e3032383ecb267a34e7c7</td>
+      <td>3.0</td>
+      <td>1</td>
+      <td>B1032</td>
+      <td>-80.603956</td>
+      <td>28.608058</td>
+      <td>1</td>
+    </tr>
+  </tbody>
+</table>
+</div></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="cell cell-markdown">
+            <div class="cell-prompt prompt-empty">&nbsp;</div>
+            <div class="cell-content">
+                <div class="markdown-cell">We can use the following line of code to determine  the success rate:<br></div>
+            </div>
+        </div>
+        <div class="cell cell-code">
+            <div class="cell-prompt input-prompt">In [18]:</div>
+            <div class="cell-content">
+                <div class="input-area"><pre>df["Class"].mean()</pre></div>
+                <div class="output-area">
+                    <div class="output-wrapper">
+                        <div class="cell-prompt output-prompt">Out[18]:</div>
+                        <div class="output-content">
+                            <div class="output-result"><pre>np.float64(0.6666666666666666)</pre></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="cell cell-markdown">
+            <div class="cell-prompt prompt-empty">&nbsp;</div>
+            <div class="cell-content">
+                <div class="markdown-cell">We can now export it to a CSV for the next section,but to make the answers consistent, in the next lab we will provide data in a pre-selected date range.<br></div>
+            </div>
+        </div>
+        <div class="cell cell-markdown">
+            <div class="cell-prompt prompt-empty">&nbsp;</div>
+            <div class="cell-content">
+                <div class="markdown-cell"><code>df.to_csv("dataset_part_2.csv", index=False)</code></div>
+            </div>
+        </div>
+        <div class="cell cell-code">
+            <div class="cell-prompt input-prompt">In [19]:</div>
+            <div class="cell-content">
+                <div class="input-area"><pre>df.to_csv("dataset_part_2.csv", index=False)</pre></div>
+            </div>
+        </div>
+        <div class="cell cell-markdown">
+            <div class="cell-prompt prompt-empty">&nbsp;</div>
+            <div class="cell-content">
+                <div class="markdown-cell"><h2>Authors</h2><br></div>
+            </div>
+        </div>
+        <div class="cell cell-markdown">
+            <div class="cell-prompt prompt-empty">&nbsp;</div>
+            <div class="cell-content">
+                <div class="markdown-cell"><a href="https://www.linkedin.com/in/joseph-s-50398b136/">Joseph Santarcangelo</a> has a PhD in Electrical Engineering, his research focused on using machine learning, signal processing, and computer vision to determine how videos impact human cognition. Joseph has been working for IBM since he completed his PhD.<br></div>
+            </div>
+        </div>
+        <div class="cell cell-markdown">
+            <div class="cell-prompt prompt-empty">&nbsp;</div>
+            <div class="cell-content">
+                <div class="markdown-cell"><a href="https://www.linkedin.com/in/nayefaboutayoun/">Nayef Abou Tayoun</a> is a Data Scientist at IBM and pursuing a Master of Management in Artificial intelligence degree at Queen's University.<br></div>
+            </div>
+        </div>
+        <div class="cell cell-markdown">
+            <div class="cell-prompt prompt-empty">&nbsp;</div>
+            <div class="cell-content">
+                <div class="markdown-cell"><!--<br><h2>Change Log</h2><br>--><br></div>
+            </div>
+        </div>
+        <div class="cell cell-markdown">
+            <div class="cell-prompt prompt-empty">&nbsp;</div>
+            <div class="cell-content">
+                <div class="markdown-cell"><!--<br>| Date (YYYY-MM-DD) | Version | Changed By | Change Description      |<br>| ----------------- | ------- | ---------- | ----------------------- |<br>| 2021-08-31        | 1.1     | Lakshmi Holla    | Changed Markdown |<br>| 2020-09-20        | 1.0     | Joseph     | Modified Multiple Areas |<br>| 2020-11-04        | 1.1.    | Nayef      | updating the input data |<br>| 2021-05-026       | 1.1.    | Joseph      | updating the input data |<br>--><br></div>
+            </div>
+        </div>
+        <div class="cell cell-markdown">
+            <div class="cell-prompt prompt-empty">&nbsp;</div>
+            <div class="cell-content">
+                <div class="markdown-cell">Copyright © 2021 IBM Corporation. All rights reserved.<br></div>
+            </div>
+        </div>
+    </div>
+    <footer class="export-footer">
+        Exported with <a href="https://www.runcell.dev/tool/ipynb-to-html">runcell</a> — convert notebooks to HTML or PDF anytime at runcell.dev.
+    </footer>
+</body>
+</html>
